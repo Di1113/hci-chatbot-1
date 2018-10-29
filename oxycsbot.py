@@ -300,7 +300,8 @@ class OxyCSBot(ChatBot):
     def respond_from_apologize(self, message, tags):
         if 'no' in tags:
             return self.go_to_state('suggestion')
-        return self.go_to_state('waiting')
+        else:
+            return self.go_to_state('advice')
 
     def on_enter_emotion_detection(self):
         # print("+++++++" + self.emotion_response)
