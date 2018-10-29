@@ -185,6 +185,7 @@ class OxyCSBot(ChatBot):
         'feel_better_question',
         'feels_better',
         'advice',
+        'apologize',
     ]
 
     TAGS = {
@@ -249,6 +250,9 @@ class OxyCSBot(ChatBot):
         'ideas': 'adv',
         'should i do': 'adv',
 
+        'told you': 'sorry',
+        'just said': 'sorry',
+
 
     }
 
@@ -288,6 +292,11 @@ class OxyCSBot(ChatBot):
         else:
             return self.finish_confused()
 
+    def on_enter_apologize(self):
+        return "Oh sorry i wasn't listening. Ok. Um. Tell me one more time?"
+
+    def respond_from_apologize(self, message, tags):
+        return self.go_to_state('waiting')
 
     def on_enter_emotion_detection(self):
         # print("+++++++" + self.emotion_response)
