@@ -241,7 +241,7 @@ class OxyCSBot(ChatBot):
         'yeah': 'yay',
 
         # states 5 not helping
-        'not really': 'no',
+        'not': 'no',
         'no': 'no',
         'nope': 'no',
 
