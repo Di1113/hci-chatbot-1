@@ -118,7 +118,7 @@ class ChatBot:
         try:
             message = input('> ')
             while message.lower() not in ('exit', 'quit','bye','goodbye','thanks i need to go','adios','okay thanks','okay bye'):
-                print()
+                print("Ok bye.")
                 print(f'{self.__class__.__name__}: {self.respond(message)}')
                 print()
                 message = input('> ')
