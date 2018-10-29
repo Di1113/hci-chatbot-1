@@ -298,6 +298,8 @@ class OxyCSBot(ChatBot):
         return "Oh sorry i wasn't listening. Ok. Um. Tell me one more time?"
 
     def respond_from_apologize(self, message, tags):
+        if 'no' in tags:
+            return self.go_to_state('suggestion')
         return self.go_to_state('waiting')
 
     def on_enter_emotion_detection(self):
