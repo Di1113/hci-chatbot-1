@@ -289,6 +289,8 @@ class OxyCSBot(ChatBot):
                     return self.go_to_state('emotion_detection')
         elif 'bye' in tags:
             return self.finish('success')
+        elif 'sorry' in tags:
+            return self.go_to_state('apologize')
         else:
             return self.finish_confused()
 
@@ -310,6 +312,8 @@ class OxyCSBot(ChatBot):
             # print(str(emotion_word_found(message)) + "\nfunction stuff: "+detect_emotion_phrase(message))
             self.emotion_response = detect_emotion_phrase(message)
             return self.go_to_state('emotion_detection')
+        elif 'sorry' in tags:
+            return self.go_to_state('apologize')
         else:
             return self.go_to_state('tell_me_more')
 
@@ -345,6 +349,8 @@ class OxyCSBot(ChatBot):
         elif emotion_word_found(message):
             self.emotion_response = detect_emotion_phrase(message)
             return self.go_to_state('emotion_detection')
+        elif 'sorry' in tags:
+            return self.go_to_state('apologize')
         else:
             return self.go_to_state('tell_me_more')
 
@@ -356,7 +362,6 @@ class OxyCSBot(ChatBot):
         return anecdote1
 
     def respond_from_anecdote(self, message, tags):
-
         if 'adv' in tags:
             return self.go_to_state('advice')
         elif 'yay' in tags:
@@ -387,6 +392,8 @@ class OxyCSBot(ChatBot):
             return self.finish('thanks')
         elif 'adv' in tags:
             return self.go_to_state('advice')
+        elif 'sorry' in tags:
+            return self.go_to_state('apologize')
         else:
             return self.go_to_state('tell_me_more')
 
@@ -407,6 +414,8 @@ class OxyCSBot(ChatBot):
             return self.go_to_state('emotion_detection')
         elif 'thanks' in tags:
             return self.finish('thanks')
+        elif 'sorry' in tags:
+            return self.go_to_state('apologize')
         else:
             return self.go_to_state('feel_better_question')
 
