@@ -1,4 +1,3 @@
-import spacy
 import en_core_web_sm
 nlp = en_core_web_sm.load()
 
@@ -122,7 +121,6 @@ def get_word_distance(word_list):
 
 
 def get_subject_of_sentence(input):
-    nlp = spacy.load("en")
     doc = nlp(input)
     sub_tokens = [token for token in doc if (token.dep_ == "nsubj")]
     return sub_tokens
