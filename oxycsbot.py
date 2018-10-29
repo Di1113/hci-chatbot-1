@@ -284,9 +284,7 @@ class OxyCSBot(ChatBot):
             if len(message) < 20:
                 return self.go_to_state('hi')
             else:
-                if emotion_word_found(message):
-                    self.emotion_response = detect_emotion_phrase(message)
-                    return self.go_to_state('emotion_detection')
+                return self.go_to_state('tell_me_more')
         elif 'bye' in tags:
             return self.finish('success')
         elif 'sorry' in tags:
@@ -446,7 +444,7 @@ class OxyCSBot(ChatBot):
         elif 'thanks' in tags:
             return self.finish('thanks')
         else:
-            return self.go_to_state('waiting')
+            return self.finish('fail')
 
     # "finish" functions
 
